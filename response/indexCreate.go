@@ -7,7 +7,6 @@ import (
 
 type IndexCreate struct {
 	Response
-	Body string
 }
 
 func (r *IndexCreate) Decode(body io.Reader) error {
@@ -15,15 +14,7 @@ func (r *IndexCreate) Decode(body io.Reader) error {
 }
 
 func (r *IndexCreate) SetBody(body io.Reader) error {
-
-	b, err := io.ReadAll(body)
-	if err != nil {
-		return err
-	}
-
-	r.Body = string(b)
 	return nil
-
 }
 
 func (r *IndexCreate) SetStatusCode(code int) error {
@@ -32,5 +23,5 @@ func (r *IndexCreate) SetStatusCode(code int) error {
 }
 
 func (r *IndexCreate) AcceptContentType() string {
-	return "application/json"
+	return ""
 }

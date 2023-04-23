@@ -17,3 +17,7 @@ type Detail struct {
 	TypeURL *string `json:"typeUrl,omitempty"`
 	Value   *string `json:"value,omitempty"`
 }
+
+func (r *Response) IsSuccess() bool {
+	return r.Code == nil
+}
