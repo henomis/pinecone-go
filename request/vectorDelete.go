@@ -14,7 +14,7 @@ type VectorDelete struct {
 }
 
 func (r *VectorDelete) Path() (string, error) {
-	return "/query", nil
+	return "/vectors/delete", nil
 }
 
 func (r *VectorDelete) Encode() (io.Reader, error) {
