@@ -15,10 +15,7 @@ type VectorFetch struct {
 				Indices []int     `json:"indices"`
 				Values  []float64 `json:"values"`
 			} `json:"sparseValues"`
-			Metadata struct {
-				Genre string `json:"genre"`
-				Year  int    `json:"year"`
-			} `json:"metadata"`
+			Metadata map[string]interface{} `json:"metadata,omitempty"`
 		} `json:"additionalProp"`
 	} `json:"vectors"`
 	Namespace string `json:"namespace"`

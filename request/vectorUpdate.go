@@ -14,7 +14,7 @@ type VectorUpdate struct {
 		Values  []int `json:"values"`
 	} `json:"sparseValues,omitempty"`
 	SetMetadata struct {
-		NewKey string `json:"newKey"`
+		NewKey interface{} `json:"newKey"`
 	} `json:"setMetadata,omitempty"`
 	Namespace string `json:"namespace,omitempty"`
 }

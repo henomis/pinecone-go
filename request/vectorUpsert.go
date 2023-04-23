@@ -15,7 +15,7 @@ type VectorUpsert struct {
 			Values  []int `json:"values"`
 		} `json:"sparseValues,omitempty"`
 		Metadata struct {
-			NewKey string `json:"newKey"`
+			NewKey interface{} `json:"newKey"`
 		} `json:"metadata,omitempty"`
 	} `json:"vectors,omitempty"`
 	Namespace string `json:"namespace,omitempty"`

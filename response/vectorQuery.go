@@ -9,16 +9,13 @@ type VectorQuery struct {
 	Response
 	Matches []struct {
 		ID           string    `json:"id"`
-		Score        *float64  `json:"score,omitempty"`
+		Score        float64   `json:"score,omitempty"`
 		Values       []float64 `json:"values,omitempty"`
 		SparseValues struct {
 			Indices []int     `json:"indices"`
 			Values  []float64 `json:"values"`
 		} `json:"sparseValues,omitempty"`
-		Metadata *struct {
-			Genre string `json:"genre"`
-			Year  int    `json:"year"`
-		} `json:"metadata,omitempty"`
+		Metadata map[string]interface{} `json:"metadata,omitempty"`
 	} `json:"matches"`
 	Namespace *string `json:"namespace,omitempty"`
 }

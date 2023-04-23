@@ -19,9 +19,8 @@ type IndexDescribe struct {
 			KBits  int  `json:"k_bits"`
 			Hybrid bool `json:"hybrid"`
 		} `json:"index_config"`
-		MetadataConfig struct {
-		} `json:"metadata_config"`
-		Status struct {
+		MetadataConfig map[string]interface{} `json:"metadata_config,omitempty"`
+		Status         struct {
 			Ready bool   `json:"ready"`
 			State string `json:"state"`
 		} `json:"status"`
