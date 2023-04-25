@@ -9,8 +9,8 @@ import (
 type IndexConfigure struct {
 	IndexName string `json:"-"`
 
-	Replicas int    `json:"replicas"`
-	PodType  string `json:"pod_type"`
+	Replicas *int    `json:"replicas,omitempty"`
+	PodType  *string `json:"pod_type,omitempty"`
 }
 
 func (r *IndexConfigure) Path() (string, error) {

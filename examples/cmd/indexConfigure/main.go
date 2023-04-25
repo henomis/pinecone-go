@@ -25,10 +25,12 @@ func main() {
 
 	p := pineconego.New(environment, apiKey)
 
+	replicas := 1
+	podType := "s1.x1"
 	req := &request.IndexConfigure{
 		IndexName: "test-index",
-		Replicas:  1,
-		PodType:   "s1.x1",
+		Replicas:  &replicas,
+		PodType:   &podType,
 	}
 	res := &response.IndexConfigure{}
 	err := p.IndexConfigure(context.Background(), req, res)

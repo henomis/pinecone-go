@@ -14,17 +14,15 @@ const (
 	MetricDotProduct Metric = "dotproduct"
 )
 
-type PodType string
-
 type IndexCreate struct {
 	Name             string                 `json:"name"`
 	Dimension        int                    `json:"dimension"`
-	Metric           Metric                 `json:"metric,omitempty"`
-	Pods             int                    `json:"pods,omitempty"`
-	Replicas         int                    `json:"replicas,omitempty"`
-	PodType          PodType                `json:"pod_type,omitempty"`
+	Metric           *Metric                `json:"metric,omitempty"`
+	Pods             *int                   `json:"pods,omitempty"`
+	Replicas         *int                   `json:"replicas,omitempty"`
+	PodType          *string                `json:"pod_type,omitempty"`
 	MetadataConfig   map[string]interface{} `json:"metadata_config,omitempty"`
-	SourceCollection string                 `json:"source_collection,omitempty"`
+	SourceCollection *string                `json:"source_collection,omitempty"`
 }
 
 func (r *IndexCreate) Path() (string, error) {

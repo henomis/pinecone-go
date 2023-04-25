@@ -59,13 +59,17 @@ func main() {
 
 	p := pineconego.New(environment, apiKey)
 
+	metric := request.MetricCosine
+	pods := 1
+	replicas := 1
+	podType := "s1.x1"
 	req := &request.IndexCreate{
 		Name:      "test-index",
 		Dimension: 10,
-		Metric:    request.MetricCosine,
-		Pods:      1,
-		Replicas:  1,
-		PodType:   "s1.x1",
+		Metric:    &metric,
+		Pods:      &pods,
+		Replicas:  &replicas,
+		PodType:   &podType,
 		MetadataConfig: map[string]interface{}{
 			"key1": "value1",
 		},
