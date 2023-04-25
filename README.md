@@ -12,17 +12,17 @@ This is [Pinecone](https://pinecone.io)'s **unofficial** Go client, designed to 
 
 ## API support
 
-| Index Operations  | Status | Vector Operations | Status | 
+| **Index Operations**  | **Status** | **Vector Operations** | **Status** | 
 | --- | --- | --- | --- |
-| List Collections | ✅ | DescribeIndexStats | ✅ |
-| Create Collection | ✅ | Query | ✅ |
-| Describe Collection | ✅ | Delete | ✅ |
-| Delete Collection | ✅ | Fetch | ✅ |
-| List Indexes | ✅ | Update | ✅ |
-| Create Index | ✅ | Upsert | ✅ |
-| Describe Index | ✅ | Whoami | ✅ |
-| Delete Index | ✅ | | |
-| Configure Index | ✅ |  | |
+| List Collections | 🟢 | DescribeIndexStats | 🟢 |
+| Create Collection | 🟢 | Query | 🟢 |
+| Describe Collection | 🟢 | Delete | 🟢 |
+| Delete Collection | 🟢 | Fetch | 🟢 |
+| List Indexes | 🟢 | Update | 🟢 |
+| Create Index | 🟢 | Upsert | 🟢 |
+| Describe Index | 🟢 | Whoami | 🟢 |
+| Delete Index | 🟢 | | |
+| Configure Index | 🟢 |  | |
 
 
 ## Getting started
