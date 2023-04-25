@@ -7,6 +7,13 @@ import (
 
 type VectorDescribeIndexStats struct {
 	Response
+	Dimension     *int32               `json:"dimension,omitempty"`
+	IndexFullness *float32             `json:"index_fullness,omitempty"`
+	Namespaces    map[string]Namespace `json:"namespaces,omitempty"`
+}
+
+type Namespace struct {
+	VectorCount *int32 `json:"vectorCount,omitempty"`
 }
 
 func (r *VectorDescribeIndexStats) Decode(body io.Reader) error {

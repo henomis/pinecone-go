@@ -5,19 +5,18 @@ import (
 	"io"
 )
 
+type QueryMatch struct {
+	ID           string                 `json:"id"`
+	Score        float64                `json:"score"`
+	Values       []float64              `json:"values,omitempty"`
+	SparseValues *VectorSparseValues    `json:"sparseValues,omitempty"`
+	Metadata     map[string]interface{} `json:"metadata,omitempty"`
+}
+
 type VectorQuery struct {
 	Response
-	Matches []struct {
-		ID           string    `json:"id"`
-		Score        float64   `json:"score,omitempty"`
-		Values       []float64 `json:"values,omitempty"`
-		SparseValues struct {
-			Indices []int     `json:"indices"`
-			Values  []float64 `json:"values"`
-		} `json:"sparseValues,omitempty"`
-		Metadata map[string]interface{} `json:"metadata,omitempty"`
-	} `json:"matches"`
-	Namespace *string `json:"namespace,omitempty"`
+	Matches   []QueryMatch `json:"matches"`
+	Namespace *string      `json:"namespace,omitempty"`
 }
 
 func (r *VectorQuery) Decode(body io.Reader) error {

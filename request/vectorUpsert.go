@@ -6,19 +6,19 @@ import (
 	"io"
 )
 
+type Vector struct {
+	ID           string                 `json:"id"`
+	Values       []float32              `json:"values"`
+	SparseValues *VectorSparseValues    `json:"sparseValues,omitempty"`
+	Metadata     map[string]interface{} `json:"metadata,omitempty"`
+}
+
 type VectorUpsert struct {
-	Vectors []struct {
-		ID           string `json:"id"`
-		Values       []int  `json:"values"`
-		SparseValues struct {
-			Indices []int `json:"indices"`
-			Values  []int `json:"values"`
-		} `json:"sparseValues,omitempty"`
-		Metadata struct {
-			NewKey interface{} `json:"newKey"`
-		} `json:"metadata,omitempty"`
-	} `json:"vectors,omitempty"`
-	Namespace string `json:"namespace,omitempty"`
+	Vectors   []Vector `json:"vectors,omitempty"`
+	Namespace string   `json:"namespace,omitempty"`
+
+	IndexName string `json:"-"`
+	ProjectID string `json:"-"`
 }
 
 func (r *VectorUpsert) Path() (string, error) {

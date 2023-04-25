@@ -3,17 +3,10 @@ package response
 import "io"
 
 type Response struct {
-	Code          *int                 `json:"code,omitempty"`
-	Message       *string              `json:"message,omitempty"`
-	Details       []Detail             `json:"details,omitempty"`
-	Dimension     *int32               `json:"dimension,omitempty"`
-	IndexFullness *string              `json:"index_fullness,omitempty"`
-	Namespaces    map[string]Namespace `json:"namespaces,omitempty"`
-	RawBody       *string              `json:"body,omitempty"`
-}
-
-type Namespace struct {
-	VectorCount *int32 `json:"vectorCount,omitempty"`
+	Code    *int     `json:"code,omitempty"`
+	Message *string  `json:"message,omitempty"`
+	Details []Detail `json:"details,omitempty"`
+	RawBody *string  `json:"body,omitempty"`
 }
 
 type Detail struct {

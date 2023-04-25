@@ -7,7 +7,9 @@ import (
 )
 
 type VectorDescribeIndexStats struct {
-	Filter map[string]string `json:"filter,omitempty"`
+	Filter    map[string]string `json:"filter,omitempty"`
+	IndexName string            `json:"-"`
+	ProjectID string            `json:"-"`
 }
 
 func (r *VectorDescribeIndexStats) Path() (string, error) {

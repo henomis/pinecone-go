@@ -7,9 +7,9 @@ import (
 
 type Whoami struct {
 	Response
-	ProjectName string `json:"project_name"`
-	UserLabel   string `json:"user_label"`
-	UserName    string `json:"user_name"`
+	ProjectID string `json:"project_name"`
+	UserLabel string `json:"user_label"`
+	UserName  string `json:"user_name"`
 }
 
 func (r *Whoami) Decode(body io.Reader) error {

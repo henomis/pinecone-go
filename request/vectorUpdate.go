@@ -6,17 +6,20 @@ import (
 	"io"
 )
 
+type VectorSparseValues struct {
+	Indices []int64   `json:"indices"`
+	Values  []float32 `json:"values"`
+}
+
 type VectorUpdate struct {
-	ID           string `json:"id"`
-	Values       []int  `json:"values,omitempty"`
-	SparseValues struct {
-		Indices []int `json:"indices"`
-		Values  []int `json:"values"`
-	} `json:"sparseValues,omitempty"`
-	SetMetadata struct {
-		NewKey interface{} `json:"newKey"`
-	} `json:"setMetadata,omitempty"`
-	Namespace string `json:"namespace,omitempty"`
+	ID           string                 `json:"id"`
+	Values       []float32              `json:"values,omitempty"`
+	SparseValues *VectorSparseValues    `json:"sparseValues,omitempty"`
+	SetMetadata  map[string]interface{} `json:"setMetadata,omitempty"`
+	Namespace    string                 `json:"namespace,omitempty"`
+
+	IndexName string `json:"-"`
+	ProjectID string `json:"-"`
 }
 
 func (r *VectorUpdate) Path() (string, error) {
