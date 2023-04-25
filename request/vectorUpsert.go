@@ -14,7 +14,7 @@ type Vector struct {
 }
 
 type VectorUpsert struct {
-	Vectors   []Vector `json:"vectors,omitempty"`
+	Vectors   []Vector `json:"vectors"`
 	Namespace string   `json:"namespace,omitempty"`
 
 	IndexName string `json:"-"`

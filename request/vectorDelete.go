@@ -9,9 +9,9 @@ import (
 type VectorDelete struct {
 	IndexName string            `json:"-"`
 	ProjectID string            `json:"-"`
-	ID        string            `json:"id,omitempty"`
-	DeleteAll bool              `json:"deleteAll,omitempty"`
-	Namespace string            `json:"namespace,omitempty"`
+	ID        *string           `json:"id,omitempty"`
+	DeleteAll *bool             `json:"deleteAll,omitempty"`
+	Namespace *string           `json:"namespace,omitempty"`
 	Filter    map[string]string `json:"filter,omitempty"`
 }
 

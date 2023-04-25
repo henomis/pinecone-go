@@ -25,10 +25,11 @@ func main() {
 
 	p := pineconego.New(environment, apiKey)
 
+	isTrue := true
 	req := &request.VectorDelete{
 		IndexName: "test-index",
 		ProjectID: "4ce27f9", // use Whoami() to get your project ID
-		DeleteAll: true,
+		DeleteAll: &isTrue,
 	}
 	res := &response.VectorDelete{}
 	err := p.VectorDelete(context.Background(), req, res)

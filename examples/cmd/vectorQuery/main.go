@@ -25,10 +25,11 @@ func main() {
 
 	p := pineconego.New(environment, apiKey)
 
+	id := "id3"
 	req := &request.VectorQuery{
 		IndexName: "test-index",
 		ProjectID: "4ce27f9", // use Whoami() to get your project ID
-		ID:        "id3",
+		ID:        &id,
 		TopK:      10,
 	}
 

@@ -6,8 +6,8 @@ import (
 )
 
 type QueryMatch struct {
-	ID           string                 `json:"id"`
-	Score        float64                `json:"score"`
+	ID           *string                `json:"id,omitempty"`
+	Score        *float64               `json:"score,omitempty"`
 	Values       []float64              `json:"values,omitempty"`
 	SparseValues *VectorSparseValues    `json:"sparseValues,omitempty"`
 	Metadata     map[string]interface{} `json:"metadata,omitempty"`
@@ -15,7 +15,7 @@ type QueryMatch struct {
 
 type VectorQuery struct {
 	Response
-	Matches   []QueryMatch `json:"matches"`
+	Matches   []QueryMatch `json:"matches,omitempty"`
 	Namespace *string      `json:"namespace,omitempty"`
 }
 

@@ -7,7 +7,7 @@ import (
 
 type VectorUpsert struct {
 	Response
-	UpsertedCount int64 `json:"upsertedCount"`
+	UpsertedCount *int64 `json:"upsertedCount,omitempty"`
 }
 
 func (r *VectorUpsert) Decode(body io.Reader) error {

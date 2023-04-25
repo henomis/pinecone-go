@@ -6,13 +6,13 @@ import (
 )
 
 type VectorSparseValues struct {
-	Indices []int64   `json:"indices"`
-	Values  []float32 `json:"values"`
+	Indices []int64   `json:"indices,omitempty"`
+	Values  []float32 `json:"values,omitempty"`
 }
 
 type Vector struct {
-	ID           string                 `json:"id"`
-	Values       []float64              `json:"values"`
+	ID           *string                `json:"id,omitempty"`
+	Values       []float64              `json:"values,omitempty"`
 	SparseValues *VectorSparseValues    `json:"sparseValues,omitempty"`
 	Metadata     map[string]interface{} `json:"metadata,omitempty"`
 }
@@ -20,7 +20,7 @@ type Vector struct {
 type VectorFetch struct {
 	Response
 	Vectors   map[string]Vector `json:"vectors,omitempty"`
-	Namespace string            `json:"namespace,omitempty"`
+	Namespace *string           `json:"namespace,omitempty"`
 }
 
 func (r *VectorFetch) Decode(body io.Reader) error {

@@ -7,12 +7,12 @@ import (
 )
 
 type VectorQuery struct {
-	ID              string            `json:"id,omitempty"`
-	Namespace       string            `json:"namespace,omitempty"`
+	ID              *string           `json:"id,omitempty"`
+	Namespace       *string           `json:"namespace,omitempty"`
 	TopK            int32             `json:"topK"`
 	Filter          map[string]string `json:"filter,omitempty"`
-	IncludeValues   bool              `json:"includeValues,omitempty"`
-	IncludeMetadata bool              `json:"includeMetadata,omitempty"`
+	IncludeValues   *bool             `json:"includeValues,omitempty"`
+	IncludeMetadata *bool             `json:"includeMetadata,omitempty"`
 	Vector          []float64         `json:"vector,omitempty"`
 	SparseVector    []SparseVector    `json:"sparseVector,omitempty"`
 
@@ -21,8 +21,8 @@ type VectorQuery struct {
 }
 
 type SparseVector struct {
-	Indices []int64   `json:"indices"`
-	Values  []float64 `json:"values"`
+	Indices []int64   `json:"indices,omitempty"`
+	Values  []float64 `json:"values,omitempty"`
 }
 
 func (r *VectorQuery) Path() (string, error) {

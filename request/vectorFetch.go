@@ -8,7 +8,7 @@ import (
 
 type VectorFetch struct {
 	IDs       []string `json:"ids"`
-	Namespace string   `json:"namespace,omitempty"`
+	Namespace *string  `json:"namespace,omitempty"`
 	IndexName string   `json:"-"`
 	ProjectID string   `json:"-"`
 }
@@ -21,13 +21,13 @@ func (r *VectorFetch) Path() (string, error) {
 
 	urlValues := restclientgo.NewURLValues()
 
-	// OMG! This is so ugly. Hey Pinecone, can you fix this?
+	// OMG! This is so ugly. Hey Pinecone, this should be ids=id1,id2,id3.
 	for _, id := range r.IDs {
 		urlValues.Add("ids", newString(id))
 	}
 
-	if r.Namespace != "" {
-		urlValues.Add("namespace", newString(r.Namespace))
+	if r.Namespace != nil {
+		urlValues.Add("namespace", r.Namespace)
 	}
 
 	return "/vectors/fetch?" + urlValues.Encode(), nil
