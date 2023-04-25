@@ -10,6 +10,21 @@ This is [Pinecone](https://pinecone.io)'s **unofficial** Go client, designed to 
 [Pinecone](https://pinecone.io) is a managed, cloud-native vector database that allows you to build high-performance vector search applications.
 
 
+## API support
+
+| Index Operations  | Status | Vector Operations | Status | 
+| --- | --- | --- | --- |
+| List Collections | ✅ | DescribeIndexStats | ✅ |
+| Create Collection | ✅ | Query | ✅ |
+| Describe Collection | ✅ | Delete | ✅ |
+| Delete Collection | ✅ | Fetch | ✅ |
+| List Indexes | ✅ | Update | ✅ |
+| Create Index | ✅ | Upsert | ✅ |
+| Describe Index | ✅ | Whoami | ✅ |
+| Delete Index | ✅ | | |
+| Configure Index | ✅ |  | |
+
+
 ## Getting started
 
 ### Installation
