@@ -5,25 +5,29 @@ import (
 	"io"
 )
 
+type IndexConfig struct {
+	KBits  *int  `json:"k_bits,omitempty"`
+	Hybrid *bool `json:"hybrid,omitempty"`
+}
+
+type IndexStatus struct {
+	Ready *bool   `json:"ready,omitempty"`
+	State *string `json:"state,omitempty"`
+}
+
 type IndexDescribe struct {
 	Response
 	Database struct {
-		Name        string `json:"name"`
-		Dimension   int    `json:"dimension"`
-		Metric      string `json:"metric"`
-		Pods        int    `json:"pods"`
-		Replicas    int    `json:"replicas"`
-		Shards      int    `json:"shards"`
-		PodType     string `json:"pod_type"`
-		IndexConfig struct {
-			KBits  int  `json:"k_bits"`
-			Hybrid bool `json:"hybrid"`
-		} `json:"index_config"`
+		Name           *string                `json:"name,omitempty"`
+		Dimension      *int                   `json:"dimension,omitempty"`
+		Metric         *string                `json:"metric,omitempty"`
+		Pods           *int                   `json:"pods,omitempty"`
+		Replicas       *int                   `json:"replicas,omitempty"`
+		Shards         *int                   `json:"shards,omitempty"`
+		PodType        *string                `json:"pod_type,omitempty"`
+		IndexConfig    *IndexConfig           `json:"index_config,omitempty"`
 		MetadataConfig map[string]interface{} `json:"metadata_config,omitempty"`
-		Status         struct {
-			Ready bool   `json:"ready"`
-			State string `json:"state"`
-		} `json:"status"`
+		Status         *IndexStatus           `json:"status"`
 	} `json:"database,omitempty"`
 }
 

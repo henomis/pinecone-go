@@ -7,9 +7,9 @@ import (
 
 type IndexDescribeCollection struct {
 	Response
-	Name   string `json:"name,omitempty"`
-	Size   int64  `json:"size,omitempty"`
-	Status string `json:"status,omitempty"`
+	Name   *string `json:"name,omitempty"`
+	Size   *int64  `json:"size,omitempty"`
+	Status *string `json:"status,omitempty"`
 }
 
 func (r *IndexDescribeCollection) Decode(body io.Reader) error {
