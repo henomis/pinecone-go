@@ -1,13 +1,13 @@
-# Pinecone unofficial SDK for Go
+# Unofficial Pinecode Go SDK
 
 
 [![Build Status](https://github.com/henomis/pinecone-go/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/henomis/pinecone-go/actions/workflows/test.yml?query=branch%3Amain) [![GoDoc](https://godoc.org/github.com/henomis/pinecone-go?status.svg)](https://godoc.org/github.com/henomis/pinecone-go) [![Go Report Card](https://goreportcard.com/badge/github.com/henomis/pinecone-go)](https://goreportcard.com/report/github.com/henomis/pinecone-go) [![GitHub release](https://img.shields.io/github/release/henomis/pinecone-go.svg)](https://github.com/henomis/pinecone-go/releases)
 
-This is Pinecone's **unofficial** Go client, designed to enable you to use Pinecone's services easily from your own applications.
+This is [Pinecone](https://pinecone.io)'s **unofficial** Go client, designed to enable you to use Pinecone's services easily from your own applications.
 
 ## Pinecone
 
-Pinecone is a managed, cloud-native vector database that allows you to build high-performance vector search applications.
+[Pinecone](https://pinecone.io) is a managed, cloud-native vector database that allows you to build high-performance vector search applications.
 
 
 ## Getting started
@@ -22,7 +22,7 @@ go get github.com/henomis/pinecone-go
 
 ### Configuration
 
-The only thing you need to start using Pinecone's APIs is the developer license key and related secret. Copy it and paste it in the corresponding place in the code, select the API you want to use and the parameters you want to use, and that's it.
+The only thing you need to start using Pinecone's APIs is the developer API key and related environment. Copy and paste them in the corresponding place in the code, select the API and the parameters you want to use, and that's it.
 
 
 ### Usage
