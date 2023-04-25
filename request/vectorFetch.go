@@ -21,7 +21,6 @@ func (r *VectorFetch) Path() (string, error) {
 
 	urlValues := restclientgo.NewURLValues()
 
-	// OMG! This is so ugly. Hey Pinecone, this should be ids=id1,id2,id3.
 	for _, id := range r.IDs {
 		urlValues.Add("ids", newString(id))
 	}
