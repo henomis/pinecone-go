@@ -12,10 +12,6 @@ func (r *IndexDelete) Decode(body io.Reader) error {
 	return nil
 }
 
-func (r *IndexDelete) SetBody(body io.Reader) error {
-	return nil
-}
-
 func (r *IndexDelete) SetStatusCode(code int) error {
 	r.Code = &code
 	return nil

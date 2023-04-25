@@ -25,10 +25,6 @@ func (r *VectorFetch) Decode(body io.Reader) error {
 	return json.NewDecoder(body).Decode(r)
 }
 
-func (r *VectorFetch) SetBody(body io.Reader) error {
-	return nil
-}
-
 func (r *VectorFetch) SetStatusCode(code int) error {
 	r.Code = &code
 	return nil

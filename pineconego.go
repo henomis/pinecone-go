@@ -130,8 +130,8 @@ func (p *PineconeGo) IndexDescribeCollection(
 
 func (p *PineconeGo) IndexDeleteCollection(
 	ctx context.Context,
-	req *request.IndexDescribeCollection,
-	res *response.IndexDescribeCollection,
+	req *request.IndexDeleteCollection,
+	res *response.IndexDeleteCollection,
 ) error {
 	p.restClient.SetEndpoint(fmt.Sprintf("https://controller.%s.pinecone.io", p.environment))
 	return p.restClient.Delete(ctx, req, res)
@@ -166,8 +166,8 @@ func (p *PineconeGo) IndexDescribe(
 
 func (p *PineconeGo) IndexDelete(
 	ctx context.Context,
-	req *request.IndexDescribe,
-	res *response.IndexDescribe,
+	req *request.IndexDelete,
+	res *response.IndexDelete,
 ) error {
 	p.restClient.SetEndpoint(fmt.Sprintf("https://controller.%s.pinecone.io", p.environment))
 	return p.restClient.Delete(ctx, req, res)

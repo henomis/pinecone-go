@@ -14,10 +14,6 @@ func (r *VectorUpsert) Decode(body io.Reader) error {
 	return json.NewDecoder(body).Decode(r)
 }
 
-func (r *VectorUpsert) SetBody(body io.Reader) error {
-	return nil
-}
-
 func (r *VectorUpsert) SetStatusCode(code int) error {
 	r.Code = &code
 	return nil

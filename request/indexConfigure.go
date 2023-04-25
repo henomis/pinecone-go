@@ -10,7 +10,7 @@ type IndexConfigure struct {
 	IndexName string `json:"-"`
 
 	Replicas int    `json:"replicas"`
-	PodType  string `json:"podType"`
+	PodType  string `json:"pod_type"`
 }
 
 func (r *IndexConfigure) Path() (string, error) {

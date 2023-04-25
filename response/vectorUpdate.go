@@ -13,10 +13,6 @@ func (r *VectorUpdate) Decode(body io.Reader) error {
 	return json.NewDecoder(body).Decode(r)
 }
 
-func (r *VectorUpdate) SetBody(body io.Reader) error {
-	return nil
-}
-
 func (r *VectorUpdate) SetStatusCode(code int) error {
 	r.Code = &code
 	return nil

@@ -7,22 +7,13 @@ import (
 
 type Whoami struct {
 	Response
-	Body string
+	ProjectName string `json:"project_name"`
+	UserLabel   string `json:"user_label"`
+	UserName    string `json:"user_name"`
 }
 
 func (r *Whoami) Decode(body io.Reader) error {
 	return json.NewDecoder(body).Decode(r)
-}
-
-func (r *Whoami) SetBody(body io.Reader) error {
-
-	b, err := io.ReadAll(body)
-	if err != nil {
-		return err
-	}
-
-	r.Body = string(b)
-	return nil
 }
 
 func (r *Whoami) SetStatusCode(code int) error {

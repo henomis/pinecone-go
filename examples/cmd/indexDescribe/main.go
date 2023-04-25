@@ -25,9 +25,11 @@ func main() {
 
 	p := pineconego.New(environment, apiKey)
 
-	req := &request.Whoami{}
-	res := &response.Whoami{}
-	err := p.Whoami(context.Background(), req, res)
+	req := &request.IndexDescribe{
+		IndexName: "test-index",
+	}
+	res := &response.IndexDescribe{}
+	err := p.IndexDescribe(context.Background(), req, res)
 	if err != nil {
 		panic(err)
 	}

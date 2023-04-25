@@ -11,17 +11,21 @@ type IndexList struct {
 }
 
 func (r *IndexList) Decode(body io.Reader) error {
-	return nil
-}
 
-func (r *IndexList) SetBody(body io.Reader) error {
-	data, err := io.ReadAll(body)
+	b, err := io.ReadAll(body)
 	if err != nil {
 		return err
 	}
 
-	return json.Unmarshal(data, &r.Indexes)
+	err = json.Unmarshal(b, &r.Indexes)
+	if err != nil {
+		err = json.Unmarshal(b, &r.Response)
+		if err != nil {
+			return err
+		}
+	}
 
+	return nil
 }
 
 func (r *IndexList) SetStatusCode(code int) error {

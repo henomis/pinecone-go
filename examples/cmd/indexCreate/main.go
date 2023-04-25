@@ -25,9 +25,19 @@ func main() {
 
 	p := pineconego.New(environment, apiKey)
 
-	req := &request.Whoami{}
-	res := &response.Whoami{}
-	err := p.Whoami(context.Background(), req, res)
+	req := &request.IndexCreate{
+		Name:      "test-index",
+		Dimension: 10,
+		Metric:    request.MetricCosine,
+		Pods:      1,
+		Replicas:  1,
+		PodType:   "s1.x1",
+		MetadataConfig: map[string]interface{}{
+			"key1": "value1",
+		},
+	}
+	res := &response.IndexCreate{}
+	err := p.IndexCreate(context.Background(), req, res)
 	if err != nil {
 		panic(err)
 	}

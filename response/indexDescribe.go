@@ -9,7 +9,7 @@ type IndexDescribe struct {
 	Response
 	Database struct {
 		Name        string `json:"name"`
-		Dimension   string `json:"dimension"`
+		Dimension   int    `json:"dimension"`
 		Metric      string `json:"metric"`
 		Pods        int    `json:"pods"`
 		Replicas    int    `json:"replicas"`
@@ -29,10 +29,6 @@ type IndexDescribe struct {
 
 func (r *IndexDescribe) Decode(body io.Reader) error {
 	return json.NewDecoder(body).Decode(r)
-}
-
-func (r *IndexDescribe) SetBody(body io.Reader) error {
-	return nil
 }
 
 func (r *IndexDescribe) SetStatusCode(code int) error {

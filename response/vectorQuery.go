@@ -24,10 +24,6 @@ func (r *VectorQuery) Decode(body io.Reader) error {
 	return json.NewDecoder(body).Decode(r)
 }
 
-func (r *VectorQuery) SetBody(body io.Reader) error {
-	return nil
-}
-
 func (r *VectorQuery) SetStatusCode(code int) error {
 	r.Code = &code
 	return nil
