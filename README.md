@@ -1,7 +1,7 @@
 # Unofficial Pinecone Go SDK
 
 
-[![GoDoc](https://godoc.org/github.com/henomis/pinecone-go?status.svg)](https://godoc.org/github.com/henomis/pinecone-go) [![Go Report Card](https://goreportcard.com/badge/github.com/henomis/pinecone-go)](https://goreportcard.com/report/github.com/henomis/pinecone-go) [![GitHub release](https://img.shields.io/github/release/henomis/pinecone-go.svg)](https://github.com/henomis/pinecone-go/releases)
+[![GoDoc](https://godoc.org/github.com/henomis/pinecone-go?status.svg)](https://godoc.org/github.com/henomis/pinecone-go) [![Go Report Card](https://goreportcard.com/badge/github.com/henomis/pinecone)](https://goreportcard.com/report/github.com/henomis/pinecone) [![GitHub release](https://img.shields.io/github/release/henomis/pinecone-go.svg)](https://github.com/henomis/pinecone-go/releases)
 
 This is [Pinecone](https://pinecone.io)'s **unofficial** Go client, designed to enable you to use Pinecone's services easily from your own applications.
 
