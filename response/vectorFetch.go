@@ -12,7 +12,7 @@ type VectorSparseValues struct {
 
 type Vector struct {
 	ID           *string                `json:"id,omitempty"`
-	Values       []float64              `json:"values,omitempty"`
+	Values       []float32              `json:"values,omitempty"`
 	SparseValues *VectorSparseValues    `json:"sparseValues,omitempty"`
 	Metadata     map[string]interface{} `json:"metadata,omitempty"`
 }
