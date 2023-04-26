@@ -121,3 +121,6 @@ func main() {
 }
 ```
 
+## Who uses pinecone-go?
+
+* [LinGoose](https://github.com/henomis/lingoose) Go framework for building awesome LLM apps
