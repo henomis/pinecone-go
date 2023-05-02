@@ -8,12 +8,12 @@ import (
 
 type VectorSparseValues struct {
 	Indices []int64   `json:"indices,omitempty"`
-	Values  []float32 `json:"values,omitempty"`
+	Values  []float64 `json:"values,omitempty"`
 }
 
 type VectorUpdate struct {
 	ID           string                 `json:"id"`
-	Values       []float32              `json:"values,omitempty"`
+	Values       []float64              `json:"values,omitempty"`
 	SparseValues *VectorSparseValues    `json:"sparseValues,omitempty"`
 	SetMetadata  map[string]interface{} `json:"setMetadata,omitempty"`
 	Namespace    *string                `json:"namespace,omitempty"`

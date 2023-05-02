@@ -13,7 +13,7 @@ type VectorQuery struct {
 	Filter          map[string]string `json:"filter,omitempty"`
 	IncludeValues   *bool             `json:"includeValues,omitempty"`
 	IncludeMetadata *bool             `json:"includeMetadata,omitempty"`
-	Vector          []float32         `json:"vector,omitempty"`
+	Vector          []float64         `json:"vector,omitempty"`
 	SparseVector    []SparseVector    `json:"sparseVector,omitempty"`
 
 	IndexName string `json:"-"`
@@ -22,7 +22,7 @@ type VectorQuery struct {
 
 type SparseVector struct {
 	Indices []int64   `json:"indices,omitempty"`
-	Values  []float32 `json:"values,omitempty"`
+	Values  []float64 `json:"values,omitempty"`
 }
 
 func (r *VectorQuery) Path() (string, error) {

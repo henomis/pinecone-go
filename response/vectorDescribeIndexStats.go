@@ -8,7 +8,7 @@ import (
 type VectorDescribeIndexStats struct {
 	Response
 	Dimension        *int32               `json:"dimension,omitempty"`
-	IndexFullness    *float32             `json:"index_fullness,omitempty"`
+	IndexFullness    *float64             `json:"index_fullness,omitempty"`
 	TotalVectorCount *int64               `json:"totalVectorCount,omitempty"`
 	Namespaces       map[string]Namespace `json:"namespaces,omitempty"`
 }

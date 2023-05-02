@@ -8,7 +8,7 @@ import (
 
 type Vector struct {
 	ID           string                 `json:"id"`
-	Values       []float32              `json:"values"`
+	Values       []float64              `json:"values"`
 	SparseValues *VectorSparseValues    `json:"sparseValues,omitempty"`
 	Metadata     map[string]interface{} `json:"metadata,omitempty"`
 }

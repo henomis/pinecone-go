@@ -29,10 +29,10 @@ func main() {
 		IndexName: "test-index",
 		ProjectID: "4ce27f9", // use Whoami() to get your project ID
 		ID:        "id3",
-		Values:    []float32{1.1, 2.2, 3, 4, 5, 6, 7, 8, 9, 10},
+		Values:    []float64{1.1, 2.2, 3, 4, 5, 6, 7, 8, 9, 10},
 		SparseValues: &request.VectorSparseValues{
 			Indices: []int64{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
-			Values:  []float32{1.1, 2.2, 3, 4, 5, 6, 7, 8, 9, 10},
+			Values:  []float64{1.1, 2.2, 3, 4, 5, 6, 7, 8, 9, 10},
 		},
 	}
 
