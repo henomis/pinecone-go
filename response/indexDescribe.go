@@ -5,30 +5,28 @@ import (
 	"io"
 )
 
-type IndexConfig struct {
-	KBits  *int  `json:"k_bits,omitempty"`
-	Hybrid *bool `json:"hybrid,omitempty"`
+type Database struct {
+	Name      string `json:"name"`
+	Metric    string `json:"metric"`
+	Dimension int    `json:"dimension"`
+	Replicas  int    `json:"replicas"`
+	Shards    int    `json:"shards"`
+	Pods      int    `json:"pods"`
+	PodType   string `json:"pod_type"`
 }
-
-type IndexStatus struct {
-	Ready *bool   `json:"ready,omitempty"`
-	State *string `json:"state,omitempty"`
+type Status struct {
+	Waiting []interface{} `json:"waiting"` // not ducomented
+	Crashed []interface{} `json:"crashed"` // not ducomented
+	Host    string        `json:"host"`
+	Port    int           `json:"port"`
+	State   string        `json:"state"`
+	Ready   bool          `json:"ready"`
 }
 
 type IndexDescribe struct {
 	Response
-	Database struct {
-		Name           *string                `json:"name,omitempty"`
-		Dimension      *int                   `json:"dimension,omitempty"`
-		Metric         *string                `json:"metric,omitempty"`
-		Pods           *int                   `json:"pods,omitempty"`
-		Replicas       *int                   `json:"replicas,omitempty"`
-		Shards         *int                   `json:"shards,omitempty"`
-		PodType        *string                `json:"pod_type,omitempty"`
-		IndexConfig    *IndexConfig           `json:"index_config,omitempty"`
-		MetadataConfig map[string]interface{} `json:"metadata_config,omitempty"`
-		Status         *IndexStatus           `json:"status"`
-	} `json:"database,omitempty"`
+	Database Database `json:"database"`
+	Status   Status   `json:"status"`
 }
 
 func (r *IndexDescribe) Decode(body io.Reader) error {
