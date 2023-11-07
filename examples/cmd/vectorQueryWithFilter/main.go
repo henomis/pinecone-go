@@ -30,7 +30,7 @@ func main() {
 		IndexName: "test-index",
 		ProjectID: "4ce27f9", // use Whoami() to get your project ID
 		ID:        &id,
-		Filter: map[string]any{
+		Filter: request.Filter{
 			"<your field>": map[string][]string{
 				"$in": {"value1", "value2", "value3"},
 			},

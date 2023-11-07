@@ -7,12 +7,12 @@ import (
 )
 
 type VectorDelete struct {
-	IndexName string         `json:"-"`
-	ProjectID string         `json:"-"`
-	ID        *string        `json:"id,omitempty"`
-	DeleteAll *bool          `json:"deleteAll,omitempty"`
-	Namespace *string        `json:"namespace,omitempty"`
-	Filter    map[string]any `json:"filter,omitempty"`
+	IndexName string  `json:"-"`
+	ProjectID string  `json:"-"`
+	ID        *string `json:"id,omitempty"`
+	DeleteAll *bool   `json:"deleteAll,omitempty"`
+	Namespace *string `json:"namespace,omitempty"`
+	Filter    Filter  `json:"filter,omitempty"`
 }
 
 func (r *VectorDelete) Path() (string, error) {

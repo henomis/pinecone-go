@@ -10,7 +10,7 @@ type VectorQuery struct {
 	ID              *string        `json:"id,omitempty"`
 	Namespace       *string        `json:"namespace,omitempty"`
 	TopK            int32          `json:"topK"`
-	Filter          map[string]any `json:"filter,omitempty"`
+	Filter          Filter         `json:"filter,omitempty"`
 	IncludeValues   *bool          `json:"includeValues,omitempty"`
 	IncludeMetadata *bool          `json:"includeMetadata,omitempty"`
 	Vector          []float64      `json:"vector,omitempty"`
