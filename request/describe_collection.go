@@ -4,18 +4,18 @@ import (
 	"io"
 )
 
-type IndexDeleteCollection struct {
+type IndexDescribeCollection struct {
 	CollectionName string `json:"-"`
 }
 
-func (r *IndexDeleteCollection) Path() (string, error) {
+func (r *IndexDescribeCollection) Path() (string, error) {
 	return "/collections/" + r.CollectionName, nil
 }
 
-func (r *IndexDeleteCollection) Encode() (io.Reader, error) {
+func (r *IndexDescribeCollection) Encode() (io.Reader, error) {
 	return nil, nil
 }
 
-func (r *IndexDeleteCollection) ContentType() string {
+func (r *IndexDescribeCollection) ContentType() string {
 	return ""
 }
