@@ -149,7 +149,7 @@ func (p *PineconeGo) IndexDescribe(
 	req *request.IndexDescribe,
 	res *response.IndexDescribe,
 ) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Get(ctx, req, res)
 }
 
@@ -158,7 +158,7 @@ func (p *PineconeGo) IndexDelete(
 	req *request.IndexDelete,
 	res *response.IndexDelete,
 ) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Delete(ctx, req, res)
 }
 
@@ -167,6 +167,6 @@ func (p *PineconeGo) IndexConfigure(
 	req *request.IndexConfigure,
 	res *response.IndexConfigure,
 ) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Patch(ctx, req, res)
 }

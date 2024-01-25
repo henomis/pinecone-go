@@ -9,7 +9,7 @@ type IndexDescribe struct {
 }
 
 func (r *IndexDescribe) Path() (string, error) {
-	return "/databases/" + r.IndexName, nil
+	return "/indexes/" + r.IndexName, nil
 }
 
 func (r *IndexDescribe) Encode() (io.Reader, error) {
