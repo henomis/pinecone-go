@@ -18,22 +18,12 @@ func main() {
 		panic("PINECONE_API_KEY is not set")
 	}
 
-	environment := os.Getenv("PINECONE_ENVIRONMENT")
-	if environment == "" {
-		panic("PINECONE_ENVIRONMENT is not set")
-	}
-
-	p := pineconego.New(environment, apiKey)
+	p := pineconego.New(apiKey)
 
 	req := &request.VectorUpdate{
-		IndexName: "test-index",
-		ProjectID: "4ce27f9", // use Whoami() to get your project ID
+		IndexHost: "https://test-index-9cbe038.svc.gcp-starter.pinecone.io",
 		ID:        "id3",
 		Values:    []float64{1.1, 2.2, 3, 4, 5, 6, 7, 8, 9, 10},
-		SparseValues: &request.VectorSparseValues{
-			Indices: []int64{0, 1, 2, 3, 4, 5, 6, 7, 8, 9},
-			Values:  []float64{1.1, 2.2, 3, 4, 5, 6, 7, 8, 9, 10},
-		},
 	}
 
 	res := &response.VectorUpdate{}

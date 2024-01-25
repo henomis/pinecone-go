@@ -12,14 +12,12 @@ type VectorSparseValues struct {
 }
 
 type VectorUpdate struct {
+	IndexHost    string                 `json:"-"`
 	ID           string                 `json:"id"`
 	Values       []float64              `json:"values,omitempty"`
 	SparseValues *VectorSparseValues    `json:"sparseValues,omitempty"`
 	SetMetadata  map[string]interface{} `json:"setMetadata,omitempty"`
 	Namespace    *string                `json:"namespace,omitempty"`
-
-	IndexName string `json:"-"`
-	ProjectID string `json:"-"`
 }
 
 func (r *VectorUpdate) Path() (string, error) {

@@ -76,7 +76,7 @@ func (p *PineconeGo) VectorUpdate(
 	req *request.VectorUpdate,
 	res *response.VectorUpdate,
 ) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Post(ctx, req, res)
 }
 
