@@ -7,6 +7,7 @@ import (
 )
 
 type VectorQuery struct {
+	IndexHost       string         `json:"-"`
 	ID              *string        `json:"id,omitempty"`
 	Namespace       *string        `json:"namespace,omitempty"`
 	TopK            int32          `json:"topK"`
@@ -15,9 +16,6 @@ type VectorQuery struct {
 	IncludeMetadata *bool          `json:"includeMetadata,omitempty"`
 	Vector          []float64      `json:"vector,omitempty"`
 	SparseVector    []SparseVector `json:"sparseVector,omitempty"`
-
-	IndexName string `json:"-"`
-	ProjectID string `json:"-"`
 }
 
 type SparseVector struct {
