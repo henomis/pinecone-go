@@ -25,5 +25,5 @@ func (r *VectorDescribeIndexStats) Encode() (io.Reader, error) {
 }
 
 func (r *VectorDescribeIndexStats) ContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

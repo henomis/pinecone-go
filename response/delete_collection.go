@@ -8,7 +8,7 @@ type IndexDeleteCollection struct {
 	Response
 }
 
-func (r *IndexDeleteCollection) Decode(body io.Reader) error {
+func (r *IndexDeleteCollection) Decode(_ io.Reader) error {
 	return nil
 }
 

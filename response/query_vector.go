@@ -29,5 +29,5 @@ func (r *VectorQuery) SetStatusCode(code int) error {
 }
 
 func (r *VectorQuery) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

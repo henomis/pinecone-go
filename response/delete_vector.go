@@ -19,5 +19,5 @@ func (r *VectorDelete) SetStatusCode(code int) error {
 }
 
 func (r *VectorDelete) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

@@ -83,5 +83,5 @@ func (r *IndexCreate) SetStatusCode(code int) error {
 }
 
 func (r *IndexCreate) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

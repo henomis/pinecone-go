@@ -20,5 +20,5 @@ func (r *VectorUpsert) SetStatusCode(code int) error {
 }
 
 func (r *VectorUpsert) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

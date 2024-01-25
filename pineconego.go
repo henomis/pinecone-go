@@ -22,7 +22,6 @@ const (
 )
 
 func New(apiKey string) *PineconeGo {
-
 	restClient := restclientgo.New("")
 	restClient.SetRequestModifier(func(req *http.Request) *http.Request {
 		req.Header.Set("Api-Key", apiKey)

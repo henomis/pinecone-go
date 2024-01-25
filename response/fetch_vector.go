@@ -33,5 +33,5 @@ func (r *VectorFetch) SetStatusCode(code int) error {
 }
 
 func (r *VectorFetch) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

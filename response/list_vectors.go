@@ -30,5 +30,5 @@ func (r *VectorList) SetStatusCode(code int) error {
 }
 
 func (r *VectorList) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

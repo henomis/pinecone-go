@@ -28,5 +28,5 @@ func (r *VectorDelete) Encode() (io.Reader, error) {
 }
 
 func (r *VectorDelete) ContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

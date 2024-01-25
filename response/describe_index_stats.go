@@ -27,5 +27,5 @@ func (r *VectorDescribeIndexStats) SetStatusCode(code int) error {
 }
 
 func (r *VectorDescribeIndexStats) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

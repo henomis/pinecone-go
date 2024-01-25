@@ -37,5 +37,5 @@ func (r *VectorQuery) Encode() (io.Reader, error) {
 }
 
 func (r *VectorQuery) ContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

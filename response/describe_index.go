@@ -20,5 +20,5 @@ func (r *IndexDescribe) SetStatusCode(code int) error {
 }
 
 func (r *IndexDescribe) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

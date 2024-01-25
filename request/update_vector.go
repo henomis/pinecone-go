@@ -34,5 +34,5 @@ func (r *VectorUpdate) Encode() (io.Reader, error) {
 }
 
 func (r *VectorUpdate) ContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

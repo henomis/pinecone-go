@@ -34,5 +34,5 @@ func (r *IndexConfigure) Encode() (io.Reader, error) {
 }
 
 func (r *IndexConfigure) ContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

@@ -50,5 +50,5 @@ func (r *IndexListCollections) SetStatusCode(code int) error {
 }
 
 func (r *IndexListCollections) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

@@ -25,5 +25,5 @@ func (r *IndexCreateCollection) Encode() (io.Reader, error) {
 }
 
 func (r *IndexCreateCollection) ContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }

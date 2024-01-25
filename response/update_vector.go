@@ -19,5 +19,5 @@ func (r *VectorUpdate) SetStatusCode(code int) error {
 }
 
 func (r *VectorUpdate) AcceptContentType() string {
-	return "application/json"
+	return ContentTypeJSON
 }
