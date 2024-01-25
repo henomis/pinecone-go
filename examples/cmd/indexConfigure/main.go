@@ -6,9 +6,9 @@ import (
 	"fmt"
 	"os"
 
-	pineconego "github.com/henomis/pinecone-go"
-	"github.com/henomis/pinecone-go/request"
-	"github.com/henomis/pinecone-go/response"
+	pineconego "github.com/henomis/pinecone-go/v2"
+	"github.com/henomis/pinecone-go/v2/request"
+	"github.com/henomis/pinecone-go/v2/response"
 )
 
 func main() {
