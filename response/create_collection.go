@@ -7,12 +7,7 @@ import (
 
 type IndexCreateCollection struct {
 	Response
-	Name        string           `json:"name"`
-	Size        int              `json:"size"`
-	Status      CollectionStatus `json:"status"`
-	Dimension   int32            `json:"dimension"`
-	RecordCount int32            `json:"record_count"`
-	Environment *string          `json:"environment,omitempty"`
+	Collection
 }
 
 func (r *IndexCreateCollection) Decode(body io.Reader) error {
