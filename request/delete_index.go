@@ -9,7 +9,7 @@ type IndexDelete struct {
 }
 
 func (r *IndexDelete) Path() (string, error) {
-	return "/databases/" + r.IndexName, nil
+	return "/indexes/" + r.IndexName, nil
 }
 
 func (r *IndexDelete) Encode() (io.Reader, error) {
