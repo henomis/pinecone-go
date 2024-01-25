@@ -40,7 +40,7 @@ func (p *PineconeGo) VectorDescribeIndexStats(
 	res *response.VectorDescribeIndexStats,
 
 ) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Post(ctx, req, res)
 }
 

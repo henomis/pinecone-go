@@ -7,9 +7,8 @@ import (
 )
 
 type VectorDescribeIndexStats struct {
+	IndexHost string `json:"-"`
 	Filter    Filter `json:"filter,omitempty"`
-	IndexName string `json:"-"`
-	ProjectID string `json:"-"`
 }
 
 func (r *VectorDescribeIndexStats) Path() (string, error) {
