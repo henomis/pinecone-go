@@ -34,11 +34,6 @@ func New(apiKey string) *PineconeGo {
 	}
 }
 
-func (p *PineconeGo) Whoami(ctx context.Context, req *request.Whoami, res *response.Whoami) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
-	return p.restClient.Get(ctx, req, res)
-}
-
 func (p *PineconeGo) VectorDescribeIndexStats(
 	ctx context.Context,
 	req *request.VectorDescribeIndexStats,
@@ -104,7 +99,7 @@ func (p *PineconeGo) IndexCreateCollection(
 	req *request.IndexCreateCollection,
 	res *response.IndexCreateCollection,
 ) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Post(ctx, req, res)
 }
 

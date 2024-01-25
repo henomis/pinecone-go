@@ -7,8 +7,8 @@ import (
 )
 
 type IndexCreateCollection struct {
-	CollectionName string `json:"name"`
-	Source         string `json:"source"`
+	Name   string `json:"name"`
+	Source string `json:"source"`
 }
 
 func (r *IndexCreateCollection) Path() (string, error) {
