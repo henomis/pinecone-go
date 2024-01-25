@@ -12,32 +12,26 @@ import (
 )
 
 func main() {
-
 	apiKey := os.Getenv("PINECONE_API_KEY")
 	if apiKey == "" {
 		panic("PINECONE_API_KEY is not set")
 	}
 
-	environment := os.Getenv("PINECONE_ENVIRONMENT")
-	if environment == "" {
-		panic("PINECONE_ENVIRONMENT is not set")
-	}
-
-	p := pineconego.New(environment, apiKey)
-
-	metric := request.MetricCosine
-	pods := 1
+	p := pineconego.New(apiKey)
 	replicas := 1
-	podType := "s1.x1"
+	shards := 1
+	metric := request.MetricCosine
 	req := &request.IndexCreate{
 		Name:      "test-index",
-		Dimension: 10,
+		Dimension: 1536,
 		Metric:    &metric,
-		Pods:      &pods,
-		Replicas:  &replicas,
-		PodType:   &podType,
-		MetadataConfig: map[string]interface{}{
-			"key1": "value1",
+		Spec: request.Spec{
+			Pod: &request.PodSpec{
+				Replicas:    &replicas,
+				Shards:      &shards,
+				PodType:     "s1.x1",
+				Environment: "gcp-starter",
+			},
 		},
 	}
 	res := &response.IndexCreate{}

@@ -7,7 +7,16 @@ import (
 
 type IndexList struct {
 	Response
-	Indexes []string
+	Indexes []Index `json:"indexes"`
+}
+
+type Index struct {
+	Name      string            `json:"name"`
+	Dimension int               `json:"dimension"`
+	Metric    *Metric           `json:"metric,omitempty"`
+	Host      string            `json:"host"`
+	Spec      Spec              `json:"spec"`
+	Status    IndexCreateStatus `json:"status"`
 }
 
 func (r *IndexList) Decode(body io.Reader) error {
@@ -17,7 +26,7 @@ func (r *IndexList) Decode(body io.Reader) error {
 		return err
 	}
 
-	err = json.Unmarshal(b, &r.Indexes)
+	err = json.Unmarshal(b, r)
 	if err != nil {
 		err = json.Unmarshal(b, &r.Response)
 		if err != nil {

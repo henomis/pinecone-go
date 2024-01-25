@@ -8,7 +8,7 @@ type IndexList struct {
 }
 
 func (r *IndexList) Path() (string, error) {
-	return "/databases", nil
+	return "/indexes", nil
 }
 
 func (r *IndexList) Encode() (io.Reader, error) {
