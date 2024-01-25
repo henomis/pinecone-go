@@ -7,10 +7,9 @@ import (
 )
 
 type VectorFetch struct {
+	IndexHost string   `json:"-"`
 	IDs       []string `json:"ids"`
 	Namespace *string  `json:"namespace,omitempty"`
-	IndexName string   `json:"-"`
-	ProjectID string   `json:"-"`
 }
 
 func (r *VectorFetch) Path() (string, error) {

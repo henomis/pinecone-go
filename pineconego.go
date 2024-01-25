@@ -67,7 +67,7 @@ func (p *PineconeGo) VectorFetch(
 	req *request.VectorFetch,
 	res *response.VectorFetch,
 ) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Get(ctx, req, res)
 }
 
