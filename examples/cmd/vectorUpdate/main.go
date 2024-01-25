@@ -21,7 +21,7 @@ func main() {
 	p := pineconego.New(apiKey)
 
 	req := &request.VectorUpdate{
-		IndexHost: "https://test-index-9cbe038.svc.gcp-starter.pinecone.io",
+		IndexHost: "https://test-index-xxxxxx.xxx.gcp-starter.pinecone.io",
 		ID:        "id3",
 		Values:    []float64{1.1, 2.2, 3, 4, 5, 6, 7, 8, 9, 10},
 	}
