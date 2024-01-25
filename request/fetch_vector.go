@@ -13,7 +13,6 @@ type VectorFetch struct {
 }
 
 func (r *VectorFetch) Path() (string, error) {
-
 	newString := func(s string) *string {
 		return &s
 	}

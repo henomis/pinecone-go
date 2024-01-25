@@ -85,6 +85,15 @@ func (p *PineconeGo) VectorUpsert(ctx context.Context, req *request.VectorUpsert
 	return p.restClient.Post(ctx, req, res)
 }
 
+func (p *PineconeGo) VectorList(
+	ctx context.Context,
+	req *request.VectorList,
+	res *response.VectorList,
+) error {
+	p.restClient.SetEndpoint(req.IndexHost)
+	return p.restClient.Get(ctx, req, res)
+}
+
 func (p *PineconeGo) IndexListCollections(
 	ctx context.Context,
 	req *request.IndexListCollections,
