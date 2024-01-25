@@ -81,7 +81,7 @@ func (p *PineconeGo) VectorUpdate(
 }
 
 func (p *PineconeGo) VectorUpsert(ctx context.Context, req *request.VectorUpsert, res *response.VectorUpsert) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Post(ctx, req, res)
 }
 
@@ -117,7 +117,7 @@ func (p *PineconeGo) IndexDeleteCollection(
 	req *request.IndexDeleteCollection,
 	res *response.IndexDeleteCollection,
 ) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Delete(ctx, req, res)
 }
 

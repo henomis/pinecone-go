@@ -14,11 +14,9 @@ type Vector struct {
 }
 
 type VectorUpsert struct {
+	IndexHost string   `json:"-"`
 	Vectors   []Vector `json:"vectors"`
 	Namespace string   `json:"namespace,omitempty"`
-
-	IndexName string `json:"-"`
-	ProjectID string `json:"-"`
 }
 
 func (r *VectorUpsert) Path() (string, error) {

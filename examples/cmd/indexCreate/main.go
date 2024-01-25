@@ -23,7 +23,7 @@ func main() {
 	metric := request.MetricCosine
 	req := &request.IndexCreate{
 		Name:      "test-index",
-		Dimension: 1536,
+		Dimension: 10,
 		Metric:    &metric,
 		Spec: request.Spec{
 			Pod: &request.PodSpec{
