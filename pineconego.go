@@ -108,7 +108,7 @@ func (p *PineconeGo) IndexDescribeCollection(
 	req *request.IndexDescribeCollection,
 	res *response.IndexDescribeCollection,
 ) error {
-	// p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Get(ctx, req, res)
 }
 
