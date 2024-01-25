@@ -19,6 +19,8 @@ type PineconeGo struct {
 const (
 	indexEndpointTemplate  = "https://controller.%s.pinecone.io"
 	vectorEndpointTemplate = "https://%s-%s.svc.%s.pinecone.io"
+
+	controlPlaneEndpoint = "https://api.pinecone.io"
 )
 
 func New(environment, apiKey string) *PineconeGo {
@@ -96,7 +98,7 @@ func (p *PineconeGo) IndexListCollections(
 	req *request.IndexListCollections,
 	res *response.IndexListCollections,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Get(ctx, req, res)
 }
 
