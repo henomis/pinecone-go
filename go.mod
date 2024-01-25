@@ -1,4 +1,4 @@
-module github.com/henomis/pinecone-go
+module github.com/henomis/pinecone-go/v2
 
 go 1.19
 

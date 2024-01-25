@@ -4,8 +4,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/henomis/pinecone-go/request"
-	"github.com/henomis/pinecone-go/response"
+	"github.com/henomis/pinecone-go/v2/request"
+	"github.com/henomis/pinecone-go/v2/response"
 	"github.com/henomis/restclientgo"
 )
 
