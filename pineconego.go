@@ -2,7 +2,6 @@ package pineconego
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 
 	"github.com/henomis/pinecone-go/request"
@@ -11,33 +10,27 @@ import (
 )
 
 type PineconeGo struct {
-	restClient  *restclientgo.RestClient
-	environment string
-	apiKey      string
+	restClient *restclientgo.RestClient
+	apiKey     string
 }
 
 const (
-	indexEndpointTemplate  = "https://controller.%s.pinecone.io"
-	vectorEndpointTemplate = "https://%s-%s.svc.%s.pinecone.io"
+	// indexEndpointTemplate  = "https://controller.%s.pinecone.io"
+	// vectorEndpointTemplate = "https://%s-%s.svc.%s.pinecone.io"
+
+	controlPlaneEndpoint = "https://api.pinecone.io"
 )
 
-func New(environment, apiKey string) *PineconeGo {
-
+func New(apiKey string) *PineconeGo {
 	restClient := restclientgo.New("")
 	restClient.SetRequestModifier(func(req *http.Request) *http.Request {
 		req.Header.Set("Api-Key", apiKey)
 		return req
 	})
 	return &PineconeGo{
-		restClient:  restClient,
-		environment: environment,
-		apiKey:      apiKey,
+		restClient: restClient,
+		apiKey:     apiKey,
 	}
-}
-
-func (p *PineconeGo) Whoami(ctx context.Context, req *request.Whoami, res *response.Whoami) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
-	return p.restClient.Get(ctx, req, res)
 }
 
 func (p *PineconeGo) VectorDescribeIndexStats(
@@ -46,7 +39,7 @@ func (p *PineconeGo) VectorDescribeIndexStats(
 	res *response.VectorDescribeIndexStats,
 
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Post(ctx, req, res)
 }
 
@@ -55,7 +48,7 @@ func (p *PineconeGo) VectorQuery(
 	req *request.VectorQuery,
 	res *response.VectorQuery,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Post(ctx, req, res)
 }
 
@@ -64,7 +57,7 @@ func (p *PineconeGo) VectorDelete(
 	req *request.VectorDelete,
 	res *response.VectorDelete,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Post(ctx, req, res)
 }
 
@@ -73,7 +66,7 @@ func (p *PineconeGo) VectorFetch(
 	req *request.VectorFetch,
 	res *response.VectorFetch,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Get(ctx, req, res)
 }
 
@@ -82,13 +75,22 @@ func (p *PineconeGo) VectorUpdate(
 	req *request.VectorUpdate,
 	res *response.VectorUpdate,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Post(ctx, req, res)
 }
 
 func (p *PineconeGo) VectorUpsert(ctx context.Context, req *request.VectorUpsert, res *response.VectorUpsert) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(vectorEndpointTemplate, req.IndexName, req.ProjectID, p.environment))
+	p.restClient.SetEndpoint(req.IndexHost)
 	return p.restClient.Post(ctx, req, res)
+}
+
+func (p *PineconeGo) VectorList(
+	ctx context.Context,
+	req *request.VectorList,
+	res *response.VectorList,
+) error {
+	p.restClient.SetEndpoint(req.IndexHost)
+	return p.restClient.Get(ctx, req, res)
 }
 
 func (p *PineconeGo) IndexListCollections(
@@ -96,7 +98,7 @@ func (p *PineconeGo) IndexListCollections(
 	req *request.IndexListCollections,
 	res *response.IndexListCollections,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Get(ctx, req, res)
 }
 
@@ -105,7 +107,7 @@ func (p *PineconeGo) IndexCreateCollection(
 	req *request.IndexCreateCollection,
 	res *response.IndexCreateCollection,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Post(ctx, req, res)
 }
 
@@ -114,7 +116,7 @@ func (p *PineconeGo) IndexDescribeCollection(
 	req *request.IndexDescribeCollection,
 	res *response.IndexDescribeCollection,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Get(ctx, req, res)
 }
 
@@ -123,7 +125,7 @@ func (p *PineconeGo) IndexDeleteCollection(
 	req *request.IndexDeleteCollection,
 	res *response.IndexDeleteCollection,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Delete(ctx, req, res)
 }
 
@@ -132,7 +134,7 @@ func (p *PineconeGo) IndexList(
 	req *request.IndexList,
 	res *response.IndexList,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Get(ctx, req, res)
 }
 
@@ -141,7 +143,7 @@ func (p *PineconeGo) IndexCreate(
 	req *request.IndexCreate,
 	res *response.IndexCreate,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Post(ctx, req, res)
 }
 
@@ -150,7 +152,7 @@ func (p *PineconeGo) IndexDescribe(
 	req *request.IndexDescribe,
 	res *response.IndexDescribe,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Get(ctx, req, res)
 }
 
@@ -159,7 +161,7 @@ func (p *PineconeGo) IndexDelete(
 	req *request.IndexDelete,
 	res *response.IndexDelete,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Delete(ctx, req, res)
 }
 
@@ -168,6 +170,6 @@ func (p *PineconeGo) IndexConfigure(
 	req *request.IndexConfigure,
 	res *response.IndexConfigure,
 ) error {
-	p.restClient.SetEndpoint(fmt.Sprintf(indexEndpointTemplate, p.environment))
+	p.restClient.SetEndpoint(controlPlaneEndpoint)
 	return p.restClient.Patch(ctx, req, res)
 }

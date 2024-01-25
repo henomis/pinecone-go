@@ -18,16 +18,11 @@ func main() {
 		panic("PINECONE_API_KEY is not set")
 	}
 
-	environment := os.Getenv("PINECONE_ENVIRONMENT")
-	if environment == "" {
-		panic("PINECONE_ENVIRONMENT is not set")
-	}
-
-	p := pineconego.New(environment, apiKey)
+	p := pineconego.New(apiKey)
 
 	req := &request.IndexCreateCollection{
-		CollectionName: "test-collection",
-		Source:         "test-index",
+		Name:   "test-collection",
+		Source: "test-index",
 	}
 	res := &response.IndexCreateCollection{}
 	err := p.IndexCreateCollection(context.Background(), req, res)

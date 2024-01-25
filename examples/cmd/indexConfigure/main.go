@@ -18,19 +18,18 @@ func main() {
 		panic("PINECONE_API_KEY is not set")
 	}
 
-	environment := os.Getenv("PINECONE_ENVIRONMENT")
-	if environment == "" {
-		panic("PINECONE_ENVIRONMENT is not set")
-	}
-
-	p := pineconego.New(environment, apiKey)
+	p := pineconego.New(apiKey)
 
 	replicas := 1
 	podType := "s1.x1"
 	req := &request.IndexConfigure{
 		IndexName: "test-index",
-		Replicas:  &replicas,
-		PodType:   &podType,
+		Spec: request.IndexConfigureSpec{
+			Pod: request.IndexConfigureSpecPod{
+				Replicas: &replicas,
+				PodType:  &podType,
+			},
+		},
 	}
 	res := &response.IndexConfigure{}
 	err := p.IndexConfigure(context.Background(), req, res)

@@ -6,6 +6,10 @@ import (
 	"github.com/henomis/restclientgo"
 )
 
+const (
+	ContentTypeJSON = "application/json"
+)
+
 type Response struct {
 	Code    *int     `json:"code,omitempty"`
 	Message *string  `json:"message,omitempty"`
@@ -23,7 +27,6 @@ func (r *Response) IsSuccess() bool {
 }
 
 func (r *Response) SetBody(body io.Reader) error {
-
 	b, err := io.ReadAll(body)
 	if err != nil {
 		return err
@@ -35,6 +38,6 @@ func (r *Response) SetBody(body io.Reader) error {
 	return nil
 }
 
-func (r *Response) SetHeaders(headers restclientgo.Headers) error {
+func (r *Response) SetHeaders(_ restclientgo.Headers) error {
 	return nil
 }

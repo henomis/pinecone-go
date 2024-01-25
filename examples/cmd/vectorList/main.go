@@ -20,20 +20,11 @@ func main() {
 
 	p := pineconego.New(apiKey)
 
-	id := "id3"
-	req := &request.VectorQuery{
+	req := &request.VectorList{
 		IndexHost: "https://test-index-xxxxxx.xxx.gcp-starter.pinecone.io",
-		ID:        &id,
-		Filter: request.Filter{
-			"key1": map[string][]string{
-				"$in": {"value1", "value2", "value3"},
-			},
-		},
-		TopK: 10,
 	}
-
-	res := &response.VectorQuery{}
-	err := p.VectorQuery(context.Background(), req, res)
+	res := &response.VectorList{}
+	err := p.VectorList(context.Background(), req, res)
 	if err != nil {
 		panic(err)
 	}
