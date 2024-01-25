@@ -20,21 +20,7 @@ type Index struct {
 }
 
 func (r *IndexList) Decode(body io.Reader) error {
-
-	b, err := io.ReadAll(body)
-	if err != nil {
-		return err
-	}
-
-	err = json.Unmarshal(b, r)
-	if err != nil {
-		err = json.Unmarshal(b, &r.Response)
-		if err != nil {
-			return err
-		}
-	}
-
-	return nil
+	return json.NewDecoder(body).Decode(r)
 }
 
 func (r *IndexList) SetStatusCode(code int) error {
